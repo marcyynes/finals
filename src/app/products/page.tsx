@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import { Sidebar } from "~/app/components/Sidebar"; 
 import { Header } from "~/app/components/Header"; 
 import React, { useState } from 'react'; 
-import Image from 'next/image'; // Import the Image component
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,7 +13,7 @@ interface Product {
     price: number;
     stock: number;
     sku: string; 
-    imageUrl: string; // Added imageUrl to the Product interface
+    imageUrl: string;
 }
 
 interface ModalProps {
@@ -92,14 +92,12 @@ interface ProductCardProps extends Product {
 const ProductCard: React.FC<ProductCardProps> = ({ name, price, stock, sku, imageUrl, onEdit }) => (
   <div className="bg-white p-4 rounded-xl shadow-md border border-gray-100 hover:shadow-lg transition duration-200 flex flex-col h-full justify-between">
     <div> 
-      {/* Replaced placeholder div with Next.js Image component */}
       <div className="h-32 relative rounded-lg mb-3 overflow-hidden">
         <Image 
           src={imageUrl} 
           alt={name} 
-          layout="fill" 
-          objectFit="cover" 
-          className="rounded-lg"
+          fill
+          className="rounded-lg object-cover"
         />
       </div>
       <h3 className="text-lg font-semibold text-gray-800">{name}</h3>
@@ -114,7 +112,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ name, price, stock, sku, imag
     </div> 
 
     <button 
-        onClick={() => onEdit({ name, price, stock, sku, imageUrl })} // Pass imageUrl in onEdit
+        onClick={() => onEdit({ name, price, stock, sku, imageUrl })}
         className="mt-3 w-full py-2 bg-indigo-500 text-white rounded-lg hover:bg-indigo-600 transition"
     >
       Edit Details
@@ -139,7 +137,7 @@ export default function ProductsPage() {
   };
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen w-screen overflow-hidden bg-gray-100">
       <Sidebar /> 
       <div className="flex-1 flex flex-col bg-gray-100 min-h-screen"> 
         <Header /> 

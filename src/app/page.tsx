@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen w-screen overflow-hidden bg-gray-100">
       
       <Sidebar /> 
 

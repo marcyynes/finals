@@ -97,7 +97,7 @@ export default function CustomersPage() {
   const handlePrev = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen w-screen overflow-hidden bg-gray-100">
       <Sidebar /> 
       <div className="flex-1 flex flex-col bg-gray-100 min-h-screen"> 
         <Header /> 
