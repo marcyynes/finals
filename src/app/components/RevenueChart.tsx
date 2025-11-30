@@ -6,14 +6,12 @@ import {
 } from 'recharts';
 import { monthlyRevenue } from "~/data/mockData";
 
-// Define the expected structure of the monthlyRevenue data array items
 interface MonthlyRevenueData {
     name: string;
     Sales: number;
 }
 
 const RevenueChart: React.FC = () => {
-    // Cast the imported data to the defined type for safety
     const data = monthlyRevenue as MonthlyRevenueData[];
 
     return (
@@ -23,10 +21,13 @@ const RevenueChart: React.FC = () => {
                 <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" stroke="#e0e0e0" />
                     <XAxis dataKey="name" stroke="#333" />
-                    {/* Formats the YAxis ticks as currency */}
-                    <YAxis tickFormatter={(value) => `$${value.toLocaleString()}`} stroke="#333" />
+                    <YAxis 
+                        // FIX: Explicitly cast value to number here
+                        tickFormatter={(value) => `$${(value as number).toLocaleString()}`} 
+                        stroke="#333" 
+                    />
                     <Tooltip 
-                        // Ensure value is treated as number before formatting
+                        // FIX: Explicitly cast value to number here as well
                         formatter={(value) => [`$${(value as number).toLocaleString()}`, 'Sales']} 
                         labelFormatter={(label) => `Month: ${label}`}
                         contentStyle={{ backgroundColor: 'white', border: '1px solid #ccc', borderRadius: '4px' }}
