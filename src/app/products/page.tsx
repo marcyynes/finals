@@ -125,10 +125,10 @@ export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const products: Product[] = [
-    { name: "Luxury Watch", price: 499.99, stock: 15, sku: "#9281", imageUrl: "/display1.png" },
-    { name: "Gaming Mouse", price: 79.99, stock: 5, sku: "#4421", imageUrl: "/display2.png" },
-    { name: "Coffee Maker", price: 129.50, stock: 30, sku: "#8812", imageUrl: "/display3.png" },
-    { name: "Noise Cancelling Headphones", price: 249.00, stock: 22, sku: "#3391", imageUrl: "/display4.png" },
+    { name: "Luxury Watch", price: 499.99, stock: 15, sku: "#9281", imageUrl: "/Display1.png" },
+    { name: "Gaming Mouse", price: 79.99, stock: 5, sku: "#4421", imageUrl: "/Display2.png" },
+    { name: "Coffee Maker", price: 129.50, stock: 30, sku: "#8812", imageUrl: "/Display3.png" },
+    { name: "Noise Cancelling Headphones", price: 249.00, stock: 22, sku: "#3391", imageUrl: "/Display4.png" },
   ];
 
   const handleEditClick = (product: Product) => {
